@@ -1,18 +1,48 @@
-SDD = Spec Driven Development
+# -> nivel de sistema (documentación completo)
+## -> módulos / bloques grandes de funcionalidades (Autenticación, Blog, Pacientes, Reservas, etc)
+### -> Funcionalidades dentrol de un módulo
+bullets -> requisitos concretos
 
-1) escribimos/definimos todo lo que se necesita / app  / funcionalidad y luego el agente escribe el codigo
+La estructura de un fichero de agentes(AGENTS.md o CLAUDE.md)
+- Estructura dentro del fichero CLAUDE.md
+
+SDD híbrido: Mismas reglas del SDD tradicional, pero combina ingenieria de prompts y vide code descriptivo, igualemnte poniendo reglas y límites en los prompts e indicaciones en el fichero de agentes. El resultado es identico si explicas todo bien. Más fácil y fluido de hacer
 
 
-Como hacer un fichero de agentes:
+SDD estrícto: Lista de funcionalidades más escueta pero más ordenada, a veces quizas con menos contexto de como debe quedar la app, pero si con más seguridad a nivel de que sí y que no puede hacer el agente con el código que genere.
 
-como trabajar con los modelos de IA, cual usar y para que usuarlos:
+La estructura de uns SPEC:
 
-Trucos para ahorrar tokens y creditos en agentes de IA
+## Funcionalidad: Nombre de la feature
 
-La estructura de un fichero de agenes (AGENTs.md o claude.md)
+### Objetivo: 
+qué problema resuelves
 
-Como funciona el flujo de trabajo con el SSD y las fases de desarrollo
+### Entradas
+- Campo 1
+- Campo 2
+- Campo 3
 
-como hacer cambiso y modificaciones en un proyecto
+### Salidas
+- Resultado esperado
 
-SDD hibrida vs SDD stricto
+### Reglas
+- Restricciones
+- Validaciones
+
+### Comportamiento
+- Paso 1
+- Paso 2
+- Paso 3
+
+
+
+Cómo funciona el flujo de trabajo con el SDD y las fases de desarrollo:
+
+Cómo hacer cambios y modificaciones en un proyecto:
+
+Prompts para exprimir al agente de IA al máximo
+
+
+
+Diferentes opciones para hacer SDD.
