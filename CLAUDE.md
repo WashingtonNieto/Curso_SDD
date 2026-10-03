@@ -111,6 +111,34 @@ Permitirá:
 ### FASE 4:
 - Dentro del panel se podrá:
     - Página de inicio con un resumen de todo y estadísticas básicas (inicialmente con datos de prueba, cuando se completen el resto de las fases ya aparecerán datos reales.)
+    - Configuración de disponibilidad de la profesional (online y presencial):
+        - Debemos tener un campo de duración de las sesiones (en minutos) .
+        Teniendo eso en cuenta:
+        - Debemos tener un selector de hora de entrada y hora de sálida (máxima).
+        - Debemos tener una semana de 7 días con la posibilidad de marcar las disponibilidad de horar marcándolas dando click.
+        - Y un botón de guardar, para dejar asignada la disponibilidad que luego se usará en la parte pública para que los pacientes puedan reservar cita.
+        - En esta sección también habrá un checkbox deslizante para marcar el "modo vacaciones" y así poder parar el sistema de citas.
+        - Funcionalidad descanso entre sesiones tanto presencial como online y que ese tiempo se tenga en cuenta para los huecos de disponibilidad.
+
+        El descanso entre sesiones debe ser configurable en el dashboard y se puede configurar, activar y desactivar en la sección de disponibilidad del dashboard.
+        Cuando hayt tiempo de desacnao entre sesiones configurado y activado, ese tiempo se "suma" al tiempo dispobible de cada uno de los "huecos" disponbibles que hay para reservar por parte de los pacientes ( y se debe tener en cuenta en el formulario público de reservas y en las diferentes zonas del dashboard donde se usa la disponibilidad para añadir o modificar citar).
+
+        Si por ejemplo mis citas online duran 50 minutos y configuro 10 minutos de descanso entre sesiones. Ahora mis huecos de disponibilidad para configurar son de 60 minutos. Por tanto los pacientes por ejemplo pueden reservar a las 9:00 am, a las 10:00 am, y así consecutivamente.
+
+        Si mis citas presenciales presenciales duran 50 minutos y no tengo descanso entre sesiones. Ahora mis pacientes a nivel presencial pueden reservar a las 9:00 am, a las 9:50 am y asi consecutivamente.
+
+        Y además cuando hago un cambio en mi duración de las sesiones o el tiempo de descanso entre sesiones, se debe avisar a la psicologa de que se debe volver a configurar y marcar sus huecos de disponibilida semanales tanto online como presenciales.
+
+        - Funcionalidad para añadir periodo de vacaciones:
+            - Se podrán añadir varios periodos de vacaciones ( fecha inicio o fecha final).
+            - Los campos de fecha inicio y fecha final serán un selector de fecha de HTML5.
+            - Los periodos de vacaciones se podrán borrar o añadir (tantos como queramos).
+            - En el calendario de reservas público ( en el resto de sitios donde se use la disponibilidad de la psicologa) los días que coincidan con esos periodos de vacaciones estarán "bloqueados" para que no se pueda reservar citas en esos rangos de fechas.
+            - Todos estos cambios se deben tener en cuenta en el formulario público de reservas y en las diferentes zonas del dashboard donde se usa la disponibilidad para añadir o modificar citas.
+            - Esta funcionalidad irá aparte del "Modo vacaciones" general (que se puede activar o desactivar y ya está indicado).
+            - El panel de "Modo vacaciones" y el panel de "Periodos de vacaciones" estarán uno al lado del otro.
+
+        - Gestionar todas las citas, pudiendo añadir nuevas, editar y eliminarlas. Se podrán visualizar en una sección con un listado paginado con diferentes filtros y también en el calendario
 
 
 ## Stack de tecnología:
