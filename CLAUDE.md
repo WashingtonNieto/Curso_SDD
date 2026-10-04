@@ -85,7 +85,7 @@ Permitirá:
     - Crear la base de datos automáticamente con los datos de nuestro servidor y nuestra conexión.
     - Nombre y apellidos de la psicologa
     - Email, numero de teléfono y contraseña (para hacer el login con estos 3 datos, únicos y privados para la psicologa, no habrá multiples usuarios, ni registros, más allá de la instalación inicial).
-    - Rellenar la información básica de la psicologa, para la web (nombre y apellidos, frase gancho o eslogan, número de teléfono para citas, email para citas, servicios principales, sobre mi, tipos de especialidades que sabe o que hace, planes y precios (online y presencial), horarios y disponibilidad, dirección y lugar de consulta)
+    - Rellenar la información básica de la psicologa, para la web (nombre y apellidos, frase gancho o eslogan, número de colegiado, número de teléfono para citas, email para citas, servicios principales, sobre mi, tipos de especialidades que sabe o que hace, planes y precios (online y presencial), horarios y disponibilidad, dirección y lugar de consulta)
     - Subir una foto de la psicologa, preferiblemente sin fondo, indicarlo.
     - Todos estos datos luego serpan modificables y ampliables en el dashboard.
     - Selección de tema o plantilla visual (habrá 5 para elegir, básate en el que ya tenemos en la carpeta "tema-visual-base", ese será prácticamente idéntico, pero básate en él para crear más).
@@ -138,7 +138,117 @@ Permitirá:
             - Esta funcionalidad irá aparte del "Modo vacaciones" general (que se puede activar o desactivar y ya está indicado).
             - El panel de "Modo vacaciones" y el panel de "Periodos de vacaciones" estarán uno al lado del otro.
 
-        - Gestionar todas las citas, pudiendo añadir nuevas, editar y eliminarlas. Se podrán visualizar en una sección con un listado paginado con diferentes filtros y también en el calendario
+        - Gestionar todas las citas, pudiendo añadir nuevas, editar y eliminarlas. Se podrán visualizar en una sección con un listado paginado con diferentes filtros y también en el calendario.
+
+### FASE 5:
+- Dentro del panel de administración:
+    - Calendario con las citas del sistema de reservas de citas y posibilidad de añadir manualmente (tipo Google Calendar).  Si hay algún plugin o librería de javascript famosa y recomendable para esto, https://calendarjs.com/ puede ser una buena opción. Adáptalo a nuestro sistema.
+
+### FASE 6:
+- Dentro del panel de administración:
+    - Gestión del Blog. Con su CRUD y a cada artículo se le puede subir una imagen y se le puede vincular a una categoría (que se pueden administrar, aparte de las creadas por defecto (crea las más adecuadas)).
+
+    - Todos los campos de texto grandes en el dashboard deber tener incluido algún editor de texto wysiwyg para hacer agradable la edición (por ejemplo: https://xdsoft.net/jodit/).
+    
+    - Copia la librería dentro del proyecto, descargala del cdn. Esa info de la instalación y el uso general de la herramienta, la puedes conseguir desde aquí: https://xdsoft.net/jodit/docs/getting-started.html.
+
+### FASE 7:
+- Dentro del panel de administración:
+    - Gestión de pacientes con los datos que pusieron al pedir cita (consultar la funcionalidad a desarrollar en la parte pública), con la posibilidad de añadir manualmente nuevos pacientes, editar los que hay para ampliar datos e información (mete los necesarios). El objetivo es que los pacientes al pedir cita mediante el sistema de reservas automáticamente se creen en este sistema de gestión, con los datos que ellos introdujeron, lo más importante y obligatorio es el número de teléfono, ya que se usará como identificador de los mismos (clave primaria), aparte del id que tenga ese paciente en la base de datos. Además, si por ejemplo la psicologa a agendado una cita con el paciente por teléfono, email, whatsapp o en persona. podrá añadir este paciente y su cita en forma manual.
+
+    - Al crear una cita manualmente, implementar un buscador de pacientes en el campo del nombre del paciente y darle click que se rellenen los datos de la cita. Si el paciente al cual estamos dando cita no existe en la tabla de pacientes, crearlo a la vez que creamos la cita y vincular esa cita con ese paciente.
+
+    - Que el buscador de pacientes sea asíncrono con el servidor (ajax), que cuando yo le de a filtrar no se recargue la página entera, sino que aparezca un efecto de carga en la tabla de pacientes y aparezcan ahí reactivamente los pacientes que estoy buscando.
+
+### FASE 8:
+- Dentrol del panel de administración:
+    - Gestión de historias (seguimiento de sesiones del paciente con posibilidad de escribir y subir fotos o pdfs). El objetivo de esto es que cada paciente, tenga su historia o su ficha, y la psicologa pueda (después de cada sesión de terapía que teng con el paciente), escribir en su historia acerca de la sesión de hoy, subir fotos o documentos pdf escaneados con las anotaciones de la terapía del día.
+
+### FASE 9:
+- Dentrol del panel de administración:
+    - Documentos de política de protección de datos (configuaración de plantilla y botón de generar pdf con los datos del paciente):
+        - Página de configuración de la plantilla con editor wysywin (botón para descargar plantilla vacía en pdf).
+        - En la página del detalle del paciente, a parte de poder meter mas información de él, tendremos un botón para descargar el pdf de la protección de datos y relleno con sus datos.
+
+### FASE 10:
+- Dentro del panel de administración:
+    - Gestión de preguntas frecuentes para los pacientes.
+
+### FASE 11:
+- Dentro del panel de administración:
+    - Configuración de toda la información que se muestra públicamente y que anteriormente se rellenó "provisionalmente" en el asistente.
+
+### FASE 12:
+- Dentro del panel de administración:
+    - Gestión de temas con 5 plantillas diferentes, simplemente se podrán seleccionar y automáticamente se activará una nueva apariencia en la web. Debe haber un botón que ponga Quieres un diseño personalizado? Pídelo aquí. y que lleve aquí: https://victorroblesweb.es/contacto
+
+    - Los temas se podrán seleccionar en formato landing (página larga) o multipáginas (diferentes secciones navegables.)
+
+    - Al darle click al tema se podrá ver una pequeña previsualización con los datos que ha rellenado la psicologa en el asistente.
+
+    - Las plantillas de los temas se guardarán en una carpeta de "themes" para fácilmente poder modificarlos o añadir nuevosy que sea todo muy plug and play.
+
+### FASE 13:
+- Dentro del panel de administración:
+    - Gestión de imagenes, se podrán gestionar todas las imagenes estáticas que aparecen en la parte pública de la web. Habrá huecos en los temas visuales que aparecerán imagenes de prueba que aparecen por ejemplo en el "tema-visual-base", pero se podrán subir imagenes que a nivel programático tendrían prioridad para renderizarse en la web.
+
+### FASE 14:
+- Dentro del panel de administración:
+    - Opción de tema claro y tema oscuro en el panel (al marcar uno de los dos, se quedará persistente, aunque me desloguee, cierre el navegador, etc):
+
+        - Cuando le demos click al botón de tema claro/oscuro aparecerá una ventana modal, como selector de los colores más relacionados con la psicología, que haya 8 colores muy estéticos para que el usuario pueda seleccionar (uno será el azul que tenemos en el dashboard), para que actue como color principal del dashboard (que se adapte toda las paleta de colores a ese tema).
+        
+        - En la ventana modal de selección del tema claro/oscuro del dashboard, se podrá seleccionar si queremos un tema claro o oscuro y el color primario para el dashboard y se guardará y persistirá (se quedará persistente, aunque me desloguee, cierre el navegador, etc).
+
+        - Casi todas las opciones de la web serán activables y desactivables (blog, sistema de reservas, faq, etc, porque habrá psicólogas que quizás no lo quieran).
+
+### FASE 15:
+- Dentro del panel de administración:
+
+    - Crear una sección de configuración de "Frases públicas" donde se puedan configurar todos los strings o frases que aparecen por defecto en los temas visuales para que la psicologa los pueda personalizar.
+
+    - Hacer las secciones de configuración de redes sociales donde la psicologa podrá poner todos los enlaces a las diferentes redes sociales para que aparezcan en la parte pública de la web.
+
+    - Hacer la sección de "Email y notificaciones" (revisa la frase 16 donde explico la necesidad que tenemos, básicamente indicar un email de gmail para enviar un email a ese email con gmail con las nuevas reservas).
+
+    - En el header del dashboard poder darle un click al nombre / avatar de la psicologa, para tener una sección donde podamos cambiar los datos privados de la psicologa (nombre, email interno/privado, teléfono interno/privado, poder modificar la contraseña y poder subir un avatar) - Sería lo mismo que la sección de configuración > General.
+
+    - Hacer el buscador general que tenemos en el header del dashboard, topbar_search-label y que al buscar nos lleve a una página especial donde nos filtre y nos encuentre las coincidencias en citas, pacientes, historias, blog, etc (se creativo y haz algo muy útil para el usuario).
+
+    - En el botón Ayuda del header del dashboard, que tenga un hover y que lleve a una sección donde explique con un tutorial general en texto y de forma sencilla de entender como funciona el dashboard de PsicoCMS completo.
+
+    - Añadir un botón para ir a ver la parte pública de la web en la barra lateral.
+
+### FASE 16:
+- En la parte pública:
+
+    - Tendremos la información de la psicologa.
+    - Botones para pedir cita, llamar, contactar por whatsapp o mandar email.
+    - Básate en la estructura de "tema-visual-base" (que tiene todas las opciones que una web de este tipo podría llegar a tener), quédate con las secciones necesarias para nuestro caso.
+    - Si la psicologa elige el tema en modo landing, será toda la web en una sola página con scroll suavisado, sino, la web tendrá secciones bien diferenciadas:
+        - Inicio con una landing page agradable y con los datos más estríctamente necesarios (básate en el tipo de web de la carpeta "tema-visual-base"), en una url.
+        - Sección Sobre mi - en otra url.
+        - Sección Servicios - en otra url.
+        - Sección Blog - en otra url.
+        - Sección Preguntas frecuentes - en otra url y quizas incluida.
+        - Sección Pide cita - en otra url (dentro, en un lado tendremos toda la parte de hacer reservas, y en otro lado, con algo de menos importancia, tendremos un ?Dónde estamos?, con la dirección y un mapa de google maps con ella, además del número de teléfono y datos de contacto).
+
+### FASE 17:
+- En la parte pública:
+    - Sección de reservas de citas:
+        - Selector para elegir si la cita es presencial u online ( en función de eso y según la disponibilidad que la psicologa tenga configurada para sus citas presenciales y su disponibilidad online, el calendario siguiente aparecerá adaptado. Las disponibilidad que la psicologa va a tener online y presenciales son diferentes y podrá configurarlas por separado).
+        - Calendario para seleccionar el dia (según las disponibilidad que tenga la psicologa configurada, ella podrá seleccionar los días de disponibilidad y horarios semanales).
+        - El paciente podrá rellenar su nombre, número de teléfono y motivo de la consulta ( con base a esto se le creará su "ficha de paciente" cuya claver primaria o identificador principal será el número de teléfono, sin los espacios por delante y por detrás y espacios entre números, es decir el número todo junto, si el paciente no lo rellena así, se limpiará programáticamente. Aparte el paciente tendrá su id único en la base de datos).
+        - Ventana modal de consulta agendada correctamente con botón de agendar en su calendario de google calendar por ejemplo (hazlo si hay una forma simple de hacerlo sin necesidad de usar apis).
+        - Enviar un email a la psicologa avisando de que tiene una nueva cita ( si tiene configuradas las notificaciones por email con un correo de gmail, en la sección de configuración tener un formulario con los datos que necesitas y un mini tutorial para explicar a la psicologa como conseguirlos y poder hacer un envio de email sencillo con phpmailer / mailer de laravel a su propio correo).
+
+### FASE 18:
+- En la parte pública:
+
+    - Sección de blog con los artículos paginados y su correspondiente filtrado por categorías (si la psicologa tiene actividad esta sección de blog, se podrá activar o desactivar desde el dashboard, al igual que tendrá un CRUD de artículos).
+    - Botones de redes sociales en el footer (configurables las diferentes redes en el panel de administración)
+
+
 
 
 ## Stack de tecnología:
