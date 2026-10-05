@@ -1,0 +1,21 @@
+import { initToasts } from '../core/toast.js';
+import { initModals } from '../core/modal.js';
+import { initConfirmForms } from '../core/confirm.js';
+import { initSidebar } from '../modules/sidebar.js';
+import { initDropdowns } from '../modules/dropdowns.js';
+import { initTabs } from '../modules/tabs.js';
+import { initAppearance } from '../modules/appearance.js';
+import { initPasswordToggles } from '../modules/password-toggle.js';
+import { initLoadingForms } from '../modules/loading-forms.js';
+import { initAutoSubmit } from '../modules/auto-submit.js';
+
+initToasts();
+initModals();
+initConfirmForms();
+initSidebar();
+initDropdowns();
+initTabs();
+initAppearance();
+initPasswordToggles();
+initLoadingForms();
+initAutoSubmit();

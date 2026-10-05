@@ -45,7 +45,7 @@ Crea un plan de implementación detallado para que un agente de IA (claude code 
 
 He terminado la FASE 4 del fichero @CLAUDE.md
 
-Ahora procede a hacer la FASE 1.
+Ahora procede a hacer la FASE 5.
 
 Contexto:
 - Especificación en @CLAUDE.md (fuente de verdad funcional)

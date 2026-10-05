@@ -1,0 +1,30 @@
+{
+    "name": "Salvia",
+    "slug": "salvia",
+    "description": "Verde salvia natural con tarjetas redondeadas y sensación de calma.",
+    "version": "1.0.0",
+    "author": "PsicoCMS",
+    "order": 3,
+    "preview": {
+        "primary": "#6B8F71",
+        "secondary": "#B8CDB0",
+        "background": "#F4F7F2",
+        "text": "#22301F",
+        "font": "Lexend",
+        "heading_font": "Lexend",
+        "layout": "split-reverse"
+    },
+    "images": {
+        "logo": "img/logo.png",
+        "favicon": "img/logo.png",
+        "hero": "img/psicologa.png",
+        "hero-secundaria": "img/psicologia.jpg",
+        "sobre-mi": "img/psicologa.jpg",
+        "servicios-fondo": "img/bg-services.png",
+        "como-empezar": "img/why.jpg",
+        "estadisticas-fondo": "img/bg-stats.png",
+        "cta-fondo": "img/bg-contactnow.png",
+        "footer-forma": "img/footer-shape.png",
+        "og": "img/psicologia.jpg"
+    }
+}

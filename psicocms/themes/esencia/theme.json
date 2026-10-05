@@ -1,0 +1,30 @@
+{
+    "name": "Esencia",
+    "slug": "esencia",
+    "description": "Editorial y minimalista en crema y negro, con tipografía elegante.",
+    "version": "1.0.0",
+    "author": "PsicoCMS",
+    "order": 5,
+    "preview": {
+        "primary": "#2B2B2B",
+        "secondary": "#C9B79C",
+        "background": "#F8F4EC",
+        "text": "#1B1B1B",
+        "font": "Lexend",
+        "heading_font": "Castoro",
+        "layout": "editorial"
+    },
+    "images": {
+        "logo": "img/logo.png",
+        "favicon": "img/logo.png",
+        "hero": "img/psicologa.png",
+        "hero-secundaria": "img/psicologia.jpg",
+        "sobre-mi": "img/psicologa.jpg",
+        "servicios-fondo": "img/bg-services.png",
+        "como-empezar": "img/why.jpg",
+        "estadisticas-fondo": "img/bg-stats.png",
+        "cta-fondo": "img/bg-contactnow.png",
+        "footer-forma": "img/footer-shape.png",
+        "og": "img/psicologia.jpg"
+    }
+}

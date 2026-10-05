@@ -1,0 +1,275 @@
+.availability__review {
+    margin-bottom: 2.4rem;
+}
+
+.availability__top {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 2.4rem;
+    margin-bottom: 3.2rem;
+}
+
+.availability__panel {
+    display: grid;
+    grid-template-columns: minmax(32rem, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: 2.4rem;
+}
+
+/* Modo vacaciones */
+.vacation-mode .card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.vacation-mode__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+}
+
+.vacation-mode__icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 5.2rem;
+    height: 5.2rem;
+    font-size: 2rem;
+    color: var(--color-primary);
+    background-color: var(--color-primary-soft);
+    border-radius: 50%;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.vacation-mode__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.vacation-mode__switch {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 1.4rem 1.6rem;
+    background-color: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+}
+
+.vacation-mode__status {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-success);
+}
+
+.vacation-mode.is-active {
+    border-color: color-mix(in srgb, var(--color-warning) 40%, transparent);
+}
+
+.vacation-mode.is-active .vacation-mode__icon {
+    color: var(--color-warning);
+    background-color: var(--color-warning-soft);
+}
+
+.vacation-mode.is-active .vacation-mode__status {
+    color: var(--color-warning);
+}
+
+/* Periodos de vacaciones */
+.vacation-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.vacation-form__note {
+    grid-column: 1 / 2;
+}
+
+.vacation-form__submit {
+    grid-column: 2 / 3;
+}
+
+.vacation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.vacation-list__item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 1.4rem;
+    background-color: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+}
+
+.vacation-list__icon {
+    color: var(--color-primary);
+}
+
+.vacation-list__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.vacation-list__text span {
+    font-size: 1.35rem;
+    color: var(--color-text-muted);
+}
+
+.vacation-list__warning {
+    color: var(--color-warning) !important;
+    font-weight: 600;
+}
+
+/* Formulario de horario */
+.schedule-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.schedule-form__actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Rejilla semanal */
+.week-grid__scroll {
+    max-height: 56rem;
+    overflow: auto;
+}
+
+.week-grid__table {
+    width: 100%;
+    min-width: 52rem;
+    border-collapse: separate;
+    border-spacing: 0.6rem;
+    padding: 1.2rem 1.6rem;
+}
+
+.week-grid__table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--color-surface);
+}
+
+.week-grid__corner {
+    width: 7rem;
+}
+
+.week-grid__day,
+.week-grid__time {
+    width: 100%;
+    min-height: 3.6rem;
+    padding: 0 0.6rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    background: none;
+    border: 0;
+    border-radius: var(--radius-sm);
+}
+
+.week-grid__day:hover,
+.week-grid__time:hover {
+    color: var(--color-primary);
+    background-color: var(--color-primary-softer);
+}
+
+.week-grid__time {
+    font-variant-numeric: tabular-nums;
+    text-align: left;
+}
+
+.week-grid__cell {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 4rem;
+    font-size: 1.3rem;
+    color: transparent;
+    background-color: var(--color-surface-alt);
+    border: 0.1rem dashed var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.week-grid__cell:hover {
+    border-color: var(--color-primary);
+}
+
+.week-grid__cell[aria-pressed="true"] {
+    color: var(--color-primary-contrast);
+    background-color: var(--color-primary);
+    border: 0.1rem solid var(--color-primary);
+}
+
+.week-grid__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 1.6rem 2.4rem;
+    border-top: 0.1rem solid var(--color-border);
+}
+
+.week-grid__info {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.week-grid__dirty {
+    color: var(--color-warning);
+}
+
+.week-grid__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+@media (max-width: 1280px) {
+    .availability__panel {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 960px) {
+    .availability__top {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .vacation-form {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .vacation-form__note,
+    .vacation-form__submit {
+        grid-column: auto;
+    }
+
+    .week-grid__footer {
+        padding: 1.6rem;
+    }
+
+    .week-grid__actions,
+    .week-grid__actions .btn {
+        width: 100%;
+    }
+}

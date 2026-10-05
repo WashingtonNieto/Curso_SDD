@@ -1,0 +1,30 @@
+{
+    "name": "Serenidad",
+    "slug": "serenidad",
+    "description": "Azul empolvado y blanco, limpio y luminoso, con portada centrada.",
+    "version": "1.0.0",
+    "author": "PsicoCMS",
+    "order": 2,
+    "preview": {
+        "primary": "#5B7FA6",
+        "secondary": "#A9C1DA",
+        "background": "#F5F8FC",
+        "text": "#1F2A37",
+        "font": "Montserrat",
+        "heading_font": "Montserrat",
+        "layout": "centered"
+    },
+    "images": {
+        "logo": "img/logo.png",
+        "favicon": "img/logo.png",
+        "hero": "img/psicologa.png",
+        "hero-secundaria": "img/psicologia.jpg",
+        "sobre-mi": "img/psicologa.jpg",
+        "servicios-fondo": "img/bg-services.png",
+        "como-empezar": "img/why.jpg",
+        "estadisticas-fondo": "img/bg-stats.png",
+        "cta-fondo": "img/bg-contactnow.png",
+        "footer-forma": "img/footer-shape.png",
+        "og": "img/psicologia.jpg"
+    }
+}

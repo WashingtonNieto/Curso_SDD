@@ -1,0 +1,30 @@
+{
+    "name": "Lavanda",
+    "slug": "lavanda",
+    "description": "Lavanda y rosa suave con formas orgánicas y un tono cercano.",
+    "version": "1.0.0",
+    "author": "PsicoCMS",
+    "order": 4,
+    "preview": {
+        "primary": "#8C7BB8",
+        "secondary": "#E5B8C8",
+        "background": "#FAF6FB",
+        "text": "#2D2438",
+        "font": "Montserrat",
+        "heading_font": "Castoro",
+        "layout": "organic"
+    },
+    "images": {
+        "logo": "img/logo.png",
+        "favicon": "img/logo.png",
+        "hero": "img/psicologa.png",
+        "hero-secundaria": "img/psicologia.jpg",
+        "sobre-mi": "img/psicologa.jpg",
+        "servicios-fondo": "img/bg-services.png",
+        "como-empezar": "img/why.jpg",
+        "estadisticas-fondo": "img/bg-stats.png",
+        "cta-fondo": "img/bg-contactnow.png",
+        "footer-forma": "img/footer-shape.png",
+        "og": "img/psicologia.jpg"
+    }
+}

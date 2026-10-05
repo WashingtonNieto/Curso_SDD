@@ -1,0 +1,30 @@
+{
+    "name": "Calma",
+    "slug": "calma",
+    "description": "Cálido y acogedor en tonos terracota. Es el diseño original de PsicoCMS.",
+    "version": "1.0.0",
+    "author": "PsicoCMS",
+    "order": 1,
+    "preview": {
+        "primary": "#976147",
+        "secondary": "#C0A090",
+        "background": "#F6F2F0",
+        "text": "#1A1414",
+        "font": "Lexend",
+        "heading_font": "Castoro",
+        "layout": "split"
+    },
+    "images": {
+        "logo": "img/logo.png",
+        "favicon": "img/logo.png",
+        "hero": "img/psicologa.png",
+        "hero-secundaria": "img/psicologia.jpg",
+        "sobre-mi": "img/psicologa.jpg",
+        "servicios-fondo": "img/bg-services.png",
+        "como-empezar": "img/why.jpg",
+        "estadisticas-fondo": "img/bg-stats.png",
+        "cta-fondo": "img/bg-contactnow.png",
+        "footer-forma": "img/footer-shape.png",
+        "og": "img/psicologia.jpg"
+    }
+}

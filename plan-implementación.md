@@ -100,6 +100,37 @@ Curso_sdd/
 
 **Temas plug & play**: cada tema es una carpeta autocontenida en `psicocms/themes/{slug}`. `ThemeManager` la descubre leyendo `theme.json`. Las vistas se registran con `View::addNamespace('theme', themes/{activo}/views)`. Los assets se sirven por la ruta `GET /themes/{slug}/{path}` (`ThemeAssetController`: valida que el tema existe, `realpath` dentro de `assets/` para evitar path traversal, mime correcto, `Cache-Control: public, max-age=31536000` + `?v={version}`). Añadir un tema = copiar una carpeta.
 
+### 3.1 Estructura obligatoria de la web pública (basada en `tema-visual-base`)
+
+> Requisito del usuario (prompt 4): la web pública debe respetar la estructura de `tema-visual-base`. Aplica a los 5 temas (Fase 12) y a las rutas/modos de la Fase 16. Los temas 2–5 pueden cambiar paleta, tipografía y composición, pero **mantienen este orden de bloques y su marcado BEM** (`layout__*`, `banner__*`, `services__*`…), adaptando solo lo necesario.
+
+**Portada / landing (`index.html`)** — orden de bloques y su equivalencia:
+
+| Bloque del tema base | Parcial Blade | Datos de PsicoCMS | Decisión |
+|---|---|---|---|
+| `layout__background` + `layout__container-banner` (`layout__nav` escritorio y `layout__nav-mobile`: logo, nombre, subtítulo, enlaces, caja de contacto, redes en móvil) | `partials/header`, `partials/nav` | `site.public_name`, frase de subtítulo, `NavigationBuilder`, teléfono/email/WhatsApp, redes | Se mantiene. El nombre deja de ser `h1` (un único `h1` por página) |
+| `layout__banner#home` (forma `sandwich`, título, botón de cita, `psicologa.png`, formas `shape1/2`) | `sections/hero` | `site.slogan`, `site.photo` o `theme_image('hero')`, CTA “Pide cita” / Llamar / WhatsApp | Se mantiene |
+| `layout__therapies` (3 tarjetas con `terapia1-3.jpg`) | `sections/specialties` | `specialties` activas | Se mantiene (módulo Especialidades) |
+| `layout__characteristics#about` | `sections/about` | `site.about`, foto, características | Se mantiene |
+| `layout__services#services` (`servicio1-4.jpg`, `bg-services.png`) | `sections/services` | `services` activos | Se mantiene (módulo Servicios) |
+| `layout__couple-issues` | `sections/cta-intermedio` | Frases públicas | Se mantiene si hay frase configurada |
+| `layout__how-start` (`why.jpg`) | `sections/how-start` | Frases públicas + `theme_image('como-empezar')` | Se mantiene |
+| `layout__prices` (online / presencial / grupo) | `sections/prices` | `plans` activos | Se mantiene (módulo Planes) |
+| `layout__stats` (`bg-stats.png`) | `sections/stats` | Años de experiencia, nº de pacientes, etc. (frases) | Se mantiene |
+| `layout__cases#cases` (`casos1-3.jpg`) | — | Sin datos en el sistema | Se descarta |
+| `layout__promos` (“Trabajo en:”) | — | Sin datos en el sistema | Se descarta |
+| `layout__experience` (`exp1.jpg`) | `sections/experience` | Formación/experiencia (Fase 11) | Se mantiene si hay datos |
+| `layout__blog#blog` (`blog1-3.jpg`) | `sections/blog-latest` | 3 últimos `blog_posts` publicados | Se mantiene (módulo Blog) |
+| *(nuevo, con el estilo del tema)* | `sections/faq` | `faqs` activas | Añadido (módulo FAQ) |
+| *(nuevo, con el estilo del tema)* | `sections/booking` + `sections/location` | Widget de reservas + mapa | Añadido (módulos Reservas y Mapa) |
+| `layout__appointment` (`bg-contactnow.png`, `shape-contactnow.png`) | `sections/cta` | CTA a Pide cita | Se mantiene |
+| `layout__footer`: top (icono, horario, redes) · middle (logo + descripción, Explorar, Contacto, Newsletter) · bottom (copyright) | `partials/footer` | Horario, redes, navegación, contacto | Se mantiene; **Newsletter se descarta** (no hay funcionalidad) |
+| `layout__container-go-top` | `partials/go-top` | — | Se mantiene |
+
+**Páginas interiores (`interior.html`)** — base de todas las páginas del modo multipágina (Sobre mí, Servicios, Especialidades, Preguntas frecuentes, Pide cita, detalle de blog, textos legales): misma cabecera/nav (`layout__container-banner`), `layout__container-main` con `layout__aside` (lateral: servicios, contacto y CTA “Haz tu cita ahora”) + `layout__main` (contenido), y el mismo pie. En “Pide cita” el `layout__main` contiene la reserva y el `layout__aside` el “¿Dónde estamos?”.
+
+**Assets**: se copian a cada tema `assets/css/{reset,fonts,styles,responsive}.css`, `assets/js/{banner,main,navFixed,navMobile,scroll-top,video}.js` (revisados para cumplir las reglas: sin `innerHTML`, sin `var`) y `assets/img/*` como imágenes por defecto de los slots.
+
 ---
 
 ## 4. Modelo de datos (se crea completo en la Fase 0)
@@ -196,7 +227,7 @@ Un hueco del día *D* es reservable si: el modo vacaciones está desactivado; *D
 
 Cada fase indica **Tareas**, **Archivos clave** y **Aceptación**. Al cerrar cada una: `php artisan test` + actualizar `tareas.md` + PAUSA para pruebas del usuario.
 
-### FASE 0 — Preparación y base de datos
+### FASE 0 — Preparación y base de datos ✅ COMPLETADA (pendiente de validación del usuario)
 **Tareas**
 1. Crear `plan-implementación.md`, `tareas.md`, `prompts.md` en la raíz.
 2. Pedir al usuario que active `extension=gd`, `extension=zip`, `extension=intl` en `D:\xampp\php\php.ini` (descomentar) y verificar con `php -m`.
@@ -211,7 +242,7 @@ Cada fase indica **Tareas**, **Archivos clave** y **Aceptación**. Al cerrar cad
 
 **Aceptación**: `php artisan migrate:fresh --seed` funciona contra MySQL; `php artisan test` en verde; `php artisan serve` muestra la página por defecto.
 
-### FASE 1 — Asistente de instalación
+### FASE 1 — Asistente de instalación ✅ COMPLETADA (pendiente de validación del usuario)
 **Tareas**
 1. Middleware global `EnsureInstalled`: si no existe `storage/app/installed.lock`, redirige todo a `/instalacion` (excepto rutas del instalador y `/themes/*`). `RedirectIfInstalled` bloquea el instalador una vez instalado (404).
 2. Si falta `.env` o `APP_KEY`, crearlos desde `.env.example` y generar la clave antes de iniciar sesión (service provider temprano).
@@ -229,7 +260,7 @@ Cada fase indica **Tareas**, **Archivos clave** y **Aceptación**. Al cerrar cad
 **Archivos clave**: `app/Http/Controllers/Installer/InstallerController.php`, `app/Http/Requests/Installer/*`, `resources/views/installer/*`, `app/Support/EnvWriter.php`, `public/panel/css/pages/installer.css`.
 **Aceptación**: con la BD inexistente, el asistente la crea, migra, guarda todos los datos y termina logueado en el panel; volver a `/instalacion` da 404; recargar a mitad de pasos reanuda sin duplicar.
 
-### FASE 2 — Login seguro
+### FASE 2 — Login seguro ✅ COMPLETADA (pendiente de validación del usuario)
 **Tareas**
 1. `GET|POST /acceso-psicologa` (middleware `guest`). Formulario con email, teléfono y contraseña (los 3 obligatorios), checkbox deslizante “Mantener la sesión iniciada”, mostrar/ocultar contraseña.
 2. Lógica: normalizar teléfono; buscar por email; verificar que el teléfono coincide **y** `Hash::check`; mensaje genérico “Los datos de acceso no son correctos”. `Auth::login($user, $remember)`, `session()->regenerate()`.
@@ -239,7 +270,7 @@ Cada fase indica **Tareas**, **Archivos clave** y **Aceptación**. Al cerrar cad
 
 **Aceptación**: tests de feature: login correcto, teléfono incorrecto, contraseña incorrecta, campo vacío, throttle, “recordarme” crea cookie, logout. Test que recorre `Route::getRoutes()` y comprueba que **toda** ruta `panel-psicologa*` tiene middleware `auth`.
 
-### FASE 3 — Layout y menú del panel
+### FASE 3 — Layout y menú del panel ✅ COMPLETADA (pendiente de validación del usuario)
 **Tareas**
 1. Layout `resources/views/panel/layout.blade.php` con `data-mode` y `data-accent` impresos desde el usuario (sin parpadeo).
 2. **Sidebar** (inspirado en el prototipo): logo “PsicoCMS – Panel de gestión”, botón destacado “+ Nueva cita”, accesos directos: *Inicio, Citas, Calendario, Pacientes, Historias clínicas, Disponibilidad*; desplegables (estilo WordPress, estado abierto si contiene la ruta activa): **Blog** (Artículos, Categorías), **Mi web** (Datos generales, Sobre mí, Servicios, Especialidades, Planes y precios, Preguntas frecuentes, Imágenes, Frases públicas, Redes sociales, Temas visuales, SEO, Textos legales), **Configuración** (General/Perfil, Módulos de la web, Email y notificaciones, Protección de datos). Pie: **Ver mi web** (nueva pestaña), Ayuda, Cerrar sesión. Elemento activo resaltado.
@@ -249,7 +280,7 @@ Cada fase indica **Tareas**, **Archivos clave** y **Aceptación**. Al cerrar cad
 
 **Aceptación**: navegación completa sin errores 404 en el menú; responsive (≥320 px); desplegables accesibles por teclado (`aria-expanded`).
 
-### FASE 4 — Inicio, disponibilidad y gestión de citas
+### FASE 4 — Inicio, disponibilidad y gestión de citas ✅ COMPLETADA (pendiente de validación del usuario)
 **4.1 Inicio** (`DashboardStatsService`): saludo “¡Hola, {nombre}!”, tarjetas (Citas hoy, Pacientes activos, Artículos publicados, Ingresos del mes = suma de `price` de citas no canceladas del mes), tabla “Próximas citas de hoy” (hora, paciente con iniciales, modalidad, acciones), tarjeta “Disponibilidad semanal” (rangos por día y modalidad), “Nuevas reservas web”, barras CSS de citas de las últimas 8 semanas. Datos reales desde el principio; para ver contenido se usa `DemoDataSeeder`. Empty states si no hay datos.
 
 **4.2 Disponibilidad** (`/panel-psicologa/disponibilidad`):
@@ -267,7 +298,7 @@ Cada fase indica **Tareas**, **Archivos clave** y **Aceptación**. Al cerrar cad
 
 **Aceptación**: los ejemplos 50+10 y 50+0 generan exactamente los huecos esperados; vacaciones bloquean huecos en el panel; no se pueden crear citas solapadas (tests de feature).
 
-### FASE 5 — Calendario (FullCalendar)
+### FASE 5 — Calendario (FullCalendar) ✅ COMPLETADA (pendiente de validación del usuario)
 **Tareas**
 1. Vista `/panel-psicologa/calendario` como el prototipo: cabecera con mes, Hoy/‹/›, selector Mes/Semana/Día, botón “Nueva cita”; a la derecha panel “Agenda del día” (citas del día seleccionado, separador de descansos, empty state “No hay más citas programadas para hoy”).
 2. `calendar.js`: FullCalendar con locale `es`, `firstDay: 1`, eventos de `/calendario/eventos?start&end` (JSON: título, inicio, fin, modalidad, estado, colores por modalidad: presencial verde, online azul; canceladas tachadas), periodos de vacaciones como eventos de fondo, `businessHours` desde la rejilla.
@@ -340,6 +371,7 @@ Páginas bajo **Mi web** para editar todo lo introducido en el instalador y ampl
      assets/css/{reset,fonts,styles,responsive}.css · assets/js/* · assets/img/* · assets/fonts/*
    ```
    Todas las secciones usan las mismas claves de datos, `phrase()` y `theme_image()`, por lo que cambiar de tema no requiere tocar datos.
+   La estructura de bloques de cada tema sigue obligatoriamente la sección **3.1** (`tema-visual-base`).
 3. **5 temas** (solo con las fuentes locales disponibles: Lexend, Montserrat, Castoro):
    - `calma` — réplica prácticamente idéntica de `tema-visual-base` (terracota `#976147`, Lexend + Castoro, mismas imágenes y animaciones). Se convierte el HTML estático en Blade dinámico, conservando secciones útiles (banner, terapias, sobre mí/características, servicios, cómo empezar, precios, estadísticas, blog, cita, footer) y descartando las que no aplican (p. ej. casos, promos si no hay datos).
    - `serenidad` — azul empolvado y blanco, Montserrat, hero centrado.
@@ -373,7 +405,7 @@ Slots estándar en `config('psicocms.image_slots')` (p. ej. `logo`, `favicon`, `
 **Aceptación**: email de prueba llega con una cuenta Gmail real (prueba manual del usuario); búsqueda por teléfono con espacios encuentra al paciente.
 
 ### FASE 16 — Web pública
-1. Controladores `Site\PageController`, rutas públicas de la sección 6, layout del tema activo.
+1. Controladores `Site\PageController`, rutas públicas de la sección 6, layout del tema activo. Portada según `index.html` e interiores según `interior.html` del tema base (sección **3.1**).
 2. **Modo landing**: `/` renderiza todas las secciones activas en una página con scroll suave (`scroll-behavior: smooth` + offset del nav fijo) y navegación por anclas; `/sobre-mi`, `/servicios`, etc. redirigen 301 a `/#ancla`. Blog (listado y detalle) y textos legales siguen teniendo URL propia.
 3. **Modo multipágina**: Inicio (landing reducida con lo imprescindible: hero, resumen sobre mí, servicios destacados, CTA, últimos artículos), Sobre mí, Servicios, Especialidades, Blog, Preguntas frecuentes, **Pide cita** (columna principal: reservas; columna secundaria: “¿Dónde estamos?” con dirección, mapa de Google embebido, teléfono, email y WhatsApp).
 4. Botones de contacto en cabecera/hero/pie: Pedir cita, Llamar (`tel:`), WhatsApp (`https://wa.me/{numero}?text=…`), Email (`mailto:`); botón flotante de WhatsApp si el módulo está activo.

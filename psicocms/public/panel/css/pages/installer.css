@@ -1,0 +1,875 @@
+.installer {
+    display: grid;
+    grid-template-columns: 32rem minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+/* Lateral con pasos */
+.installer__aside {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    height: 100vh;
+    padding: 3.2rem 2.4rem;
+    background-color: var(--color-surface);
+    border-right: 0.1rem solid var(--color-border);
+}
+
+.installer-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.installer-steps__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0.8rem 1rem;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--color-text-soft);
+    border-radius: var(--radius-md);
+}
+
+.installer-steps__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 4.4rem;
+    left: 2.5rem;
+    width: 0.2rem;
+    height: 1.2rem;
+    background-color: var(--color-border);
+}
+
+.installer-steps__marker {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-soft);
+    background-color: var(--color-surface-alt);
+    border: 0.2rem solid var(--color-border);
+    border-radius: 50%;
+}
+
+.installer-steps__item.is-done {
+    color: var(--color-text-muted);
+}
+
+.installer-steps__item.is-done .installer-steps__marker {
+    color: var(--color-primary-contrast);
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.installer-steps__item.is-current {
+    color: var(--color-primary);
+    background-color: var(--color-primary-softer);
+}
+
+.installer-steps__item.is-current .installer-steps__marker {
+    color: var(--color-primary-contrast);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.installer__aside-note {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    padding: 1.6rem;
+    font-size: 1.35rem;
+    color: var(--color-text-muted);
+    background-color: var(--color-primary-softer);
+    border-radius: var(--radius-md);
+}
+
+.installer__aside-note i {
+    margin-top: 0.3rem;
+    color: var(--color-primary);
+}
+
+/* Contenido */
+.installer__main {
+    padding: 4.8rem 4rem 6.4rem;
+}
+
+.installer__container {
+    max-width: 88rem;
+    margin: 0 auto;
+}
+
+.installer__mobile-progress {
+    display: none;
+}
+
+.installer__header {
+    margin-bottom: 3.2rem;
+}
+
+.installer__eyebrow {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.installer__lead {
+    max-width: 68rem;
+    margin-top: 0.8rem;
+    font-size: 1.65rem;
+    color: var(--color-text-muted);
+}
+
+.installer__alerts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2.4rem;
+}
+
+.installer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.installer-section__title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.installer-section__title i {
+    display: grid;
+    place-items: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    background-color: var(--color-primary-soft);
+    border-radius: var(--radius-sm);
+}
+
+.installer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    padding-top: 0.8rem;
+}
+
+.installer-actions__end {
+    margin-left: auto;
+}
+
+/* Paso 1: requisitos */
+.welcome-hero {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 2.4rem;
+}
+
+.welcome-hero__icon {
+    display: grid;
+    place-items: center;
+    width: 8rem;
+    height: 8rem;
+    font-size: 3.4rem;
+    color: var(--color-primary);
+    background-color: var(--color-primary-soft);
+    border-radius: var(--radius-xl);
+}
+
+.welcome-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem 2.4rem;
+    margin-top: 2rem;
+}
+
+.welcome-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.45rem;
+    color: var(--color-text-muted);
+}
+
+.welcome-list i {
+    width: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.requirements {
+    display: flex;
+    flex-direction: column;
+}
+
+.requirements__group {
+    padding: 1.6rem 0 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-soft);
+}
+
+.requirements__item {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.2rem 0;
+    border-bottom: 0.1rem solid var(--color-border);
+}
+
+.requirements__status {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    border-radius: 50%;
+}
+
+.requirements__item.is-ok .requirements__status {
+    color: var(--color-success);
+    background-color: var(--color-success-soft);
+}
+
+.requirements__item.is-ko .requirements__status {
+    color: var(--color-danger);
+    background-color: var(--color-danger-soft);
+}
+
+.requirements__label {
+    display: block;
+    font-weight: 600;
+}
+
+.requirements__detail {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--color-text-muted);
+}
+
+.requirements__item.is-ko .requirements__detail {
+    color: var(--color-danger);
+}
+
+/* Paso 2: base de datos lista */
+.success-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 4.8rem 2.4rem;
+    text-align: center;
+}
+
+.success-state__icon {
+    display: grid;
+    place-items: center;
+    width: 8.8rem;
+    height: 8.8rem;
+    font-size: 3.6rem;
+    color: var(--color-success);
+    background-color: var(--color-success-soft);
+    border-radius: 50%;
+}
+
+.success-state__text {
+    max-width: 52rem;
+    color: var(--color-text-muted);
+}
+
+/* Paso 4: chips y listas repetibles */
+.chips-input {
+    display: flex;
+    gap: 1rem;
+}
+
+.chips-input .form-control {
+    flex: 1;
+}
+
+.chips-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+.chips-list:empty::before {
+    content: attr(data-empty);
+    font-size: 1.35rem;
+    color: var(--color-text-soft);
+}
+
+.repeatable {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.repeatable__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) auto;
+    align-items: start;
+    gap: 1rem;
+    padding: 1.2rem;
+    background-color: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+}
+
+.repeatable__add {
+    align-self: flex-start;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.plan-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 2rem;
+    border: 0.1rem solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.plan-box__title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.6rem;
+}
+
+/* Paso 5: horarios */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem;
+}
+
+.schedule-card .card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.schedule-card__head {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 2rem 2.4rem;
+    border-bottom: 0.1rem solid var(--color-border);
+}
+
+.schedule-card__head .badge {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.4rem;
+}
+
+/* Paso 6: foto */
+.photo-upload .image-upload__preview {
+    width: 22rem;
+    height: 26rem;
+    font-size: 5rem;
+}
+
+.photo-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    font-size: 1.4rem;
+    color: var(--color-text-muted);
+}
+
+.photo-tips li {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.photo-tips i {
+    margin-top: 0.4rem;
+    color: var(--color-success);
+}
+
+/* Paso 7: temas */
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    gap: 2rem;
+}
+
+.theme-card {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.theme-card__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.theme-card__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--color-surface);
+    border: 0.2rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.theme-card:hover .theme-card__body {
+    transform: translateY(-0.2rem);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-card__input:checked + .theme-card__body {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.4rem var(--color-primary-soft);
+}
+
+.theme-card__input:focus-visible + .theme-card__body {
+    box-shadow: var(--focus-ring);
+}
+
+.theme-card__check {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    color: var(--color-primary-contrast);
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.theme-card__input:checked + .theme-card__body .theme-card__check {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.theme-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.6rem 1.8rem 1.8rem;
+}
+
+.theme-card__name {
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.theme-card__description {
+    font-size: 1.35rem;
+    color: var(--color-text-muted);
+}
+
+.theme-card__swatches {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+}
+
+.theme-card__swatch {
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 0.1rem solid rgb(0 0 0 / 0.1);
+    border-radius: 50%;
+}
+
+.theme-card__swatch--primary { background-color: var(--tp-primary); }
+.theme-card__swatch--secondary { background-color: var(--tp-secondary); }
+.theme-card__swatch--background { background-color: var(--tp-background); }
+
+/* Mini maqueta del tema */
+.theme-preview {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 17rem;
+    padding: 1.2rem 1.4rem;
+    overflow: hidden;
+    color: var(--tp-text);
+    background-color: var(--tp-background);
+    font-family: var(--tp-font), var(--font-base);
+}
+
+.theme-preview__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.theme-preview__logo {
+    width: 3.4rem;
+    height: 0.8rem;
+    background-color: var(--tp-primary);
+    border-radius: var(--radius-pill);
+}
+
+.theme-preview__links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.theme-preview__links span {
+    width: 1.8rem;
+    height: 0.5rem;
+    background-color: color-mix(in srgb, var(--tp-text) 30%, transparent);
+    border-radius: var(--radius-pill);
+}
+
+.theme-preview__hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 1.2rem;
+    flex: 1;
+}
+
+.theme-preview__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.theme-preview__title {
+    font-family: var(--tp-heading-font), Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--tp-text);
+}
+
+.theme-preview__line {
+    height: 0.5rem;
+    background-color: color-mix(in srgb, var(--tp-text) 22%, transparent);
+    border-radius: var(--radius-pill);
+}
+
+.theme-preview__line--short {
+    width: 65%;
+}
+
+.theme-preview__button {
+    width: 6rem;
+    height: 1.8rem;
+    margin-top: 0.4rem;
+    background-color: var(--tp-primary);
+    border-radius: var(--radius-pill);
+}
+
+.theme-preview__media {
+    height: 100%;
+    min-height: 9rem;
+    background: linear-gradient(160deg, var(--tp-secondary), var(--tp-primary));
+    border-radius: 1.2rem 1.2rem 5rem 1.2rem;
+}
+
+.theme-preview--centered .theme-preview__hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+.theme-preview--centered .theme-preview__copy {
+    align-items: center;
+}
+
+.theme-preview--centered .theme-preview__line {
+    width: 70%;
+}
+
+.theme-preview--centered .theme-preview__media {
+    display: none;
+}
+
+.theme-preview--centered::after {
+    content: "";
+    position: absolute;
+    right: -3rem;
+    bottom: -3rem;
+    width: 10rem;
+    height: 10rem;
+    background-color: var(--tp-secondary);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.theme-preview--split-reverse .theme-preview__hero {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+.theme-preview--split-reverse .theme-preview__media {
+    order: -1;
+    border-radius: 2rem;
+}
+
+.theme-preview--organic .theme-preview__media {
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+}
+
+.theme-preview--editorial .theme-preview__title {
+    font-size: 1.8rem;
+    font-style: italic;
+}
+
+.theme-preview--editorial .theme-preview__media {
+    border-radius: 0;
+    background: linear-gradient(180deg, var(--tp-secondary), color-mix(in srgb, var(--tp-secondary) 60%, var(--tp-primary)));
+}
+
+.theme-preview--editorial .theme-preview__button {
+    border-radius: 0;
+}
+
+.mode-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem;
+}
+
+.mode-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.mode-option__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mode-option__body {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.4rem;
+    height: 100%;
+    padding: 1.8rem;
+    border: 0.2rem solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition), background-color var(--transition);
+}
+
+.mode-option__body i {
+    font-size: 2.2rem;
+    color: var(--color-primary);
+}
+
+.mode-option__title {
+    display: block;
+    font-weight: 700;
+}
+
+.mode-option__text {
+    display: block;
+    font-size: 1.35rem;
+    color: var(--color-text-muted);
+}
+
+.mode-option__input:checked + .mode-option__body {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary-softer);
+}
+
+.mode-option__input:focus-visible + .mode-option__body {
+    box-shadow: var(--focus-ring);
+}
+
+/* Paso 8: resumen */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.summary-item {
+    display: flex;
+    gap: 1.4rem;
+    padding: 2rem;
+}
+
+.summary-item__icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 4.4rem;
+    height: 4.4rem;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    background-color: var(--color-primary-soft);
+    border-radius: var(--radius-md);
+}
+
+.summary-item__title {
+    font-size: 1.5rem;
+}
+
+.summary-item__text {
+    margin-top: 0.4rem;
+    font-size: 1.4rem;
+    color: var(--color-text-muted);
+}
+
+.summary-item__edit {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.summary-photo {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-alt);
+}
+
+@media (max-width: 1100px) {
+    .installer {
+        grid-template-columns: 26rem minmax(0, 1fr);
+    }
+
+    .schedule-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 860px) {
+    .installer {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .installer__aside {
+        position: static;
+        height: auto;
+        padding: 1.6rem 2rem;
+        border-right: 0;
+        border-bottom: 0.1rem solid var(--color-border);
+    }
+
+    .installer-steps,
+    .installer__aside-note {
+        display: none;
+    }
+
+    .installer__main {
+        padding: 2.4rem 1.6rem 4.8rem;
+    }
+
+    .installer__mobile-progress {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 2.4rem;
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--color-text-muted);
+    }
+
+    .installer__progress {
+        width: 100%;
+        height: 0.8rem;
+        appearance: none;
+        border: 0;
+        border-radius: var(--radius-pill);
+        background-color: var(--color-surface-alt);
+        overflow: hidden;
+    }
+
+    .installer__progress::-webkit-progress-bar {
+        background-color: var(--color-surface-alt);
+    }
+
+    .installer__progress::-webkit-progress-value {
+        background-color: var(--color-primary);
+        border-radius: var(--radius-pill);
+    }
+
+    .installer__progress::-moz-progress-bar {
+        background-color: var(--color-primary);
+        border-radius: var(--radius-pill);
+    }
+
+    .plans-grid,
+    .summary-grid,
+    .mode-options,
+    .welcome-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .repeatable__row {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .repeatable__row .form-group:nth-child(2) {
+        grid-column: 1 / 2;
+        grid-row: 2;
+    }
+
+    .welcome-hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .installer-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .installer-actions .btn {
+        width: 100%;
+    }
+
+    .installer-actions__end {
+        margin-left: 0;
+    }
+
+    .chips-input {
+        flex-direction: column;
+    }
+
+    .image-upload {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .photo-upload .image-upload__preview {
+        width: 100%;
+    }
+}

@@ -1,0 +1,188 @@
+.dashboard__alert {
+    margin-bottom: 2rem;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 38rem;
+    align-items: start;
+    gap: 2.4rem;
+}
+
+.dashboard__main,
+.dashboard__side {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    min-width: 0;
+}
+
+.card__link {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.table tr.is-past td {
+    opacity: 0.55;
+}
+
+.bar-chart {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    align-items: end;
+    gap: 1.2rem;
+    height: 22rem;
+}
+
+.bar-chart__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    height: 100%;
+}
+
+.bar-chart__value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+}
+
+.bar-chart__track {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    width: 100%;
+    max-width: 4.8rem;
+}
+
+.bar-chart__bar {
+    width: 100%;
+    height: var(--bar-height);
+    background-color: var(--color-primary-soft);
+    border-radius: var(--radius-sm) var(--radius-sm) 0.2rem 0.2rem;
+    transition: height 0.4s ease;
+}
+
+.bar-chart__item.is-current .bar-chart__bar {
+    background-color: var(--color-primary);
+}
+
+.bar-chart__label {
+    font-size: 1.2rem;
+    white-space: nowrap;
+    color: var(--color-text-soft);
+}
+
+.week-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.week-summary__day {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.2rem;
+}
+
+.week-summary__name {
+    padding-top: 0.4rem;
+    color: var(--color-text-muted);
+}
+
+.week-summary__ranges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.6rem;
+}
+
+.week-summary__range {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: var(--radius-pill);
+}
+
+.week-summary__range--online {
+    color: var(--color-online);
+    background-color: var(--color-online-soft);
+}
+
+.week-summary__range--presencial {
+    color: var(--color-presencial);
+    background-color: var(--color-presencial-soft);
+}
+
+.week-summary__none {
+    padding-top: 0.4rem;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--color-text-soft);
+}
+
+.week-summary__legend {
+    display: flex;
+    gap: 1.6rem;
+    margin-top: 1.6rem;
+    padding-top: 1.2rem;
+    font-size: 1.3rem;
+    color: var(--color-text-muted);
+    border-top: 0.1rem solid var(--color-border);
+}
+
+.booking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.booking-list__item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem;
+    color: var(--color-text);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+}
+
+.booking-list__item:hover {
+    background-color: var(--color-primary-softer);
+    text-decoration: none;
+}
+
+.booking-list__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.booking-list__text span {
+    font-size: 1.3rem;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 1200px) {
+    .dashboard {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .bar-chart {
+        gap: 0.4rem;
+        height: 18rem;
+    }
+
+    .bar-chart__label {
+        font-size: 1rem;
+    }
+}
