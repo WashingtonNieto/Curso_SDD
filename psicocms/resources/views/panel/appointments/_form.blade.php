@@ -21,7 +21,7 @@
         <div class="appointment-form__main">
             <x-panel.card title="Paciente" icon="fa-regular fa-user" subtitle="Si el teléfono ya existe, la cita se vinculará a ese paciente; si no, se creará su ficha automáticamente.">
                 <div class="form-grid">
-                    <x-panel.form.input name="first_name" label="Nombre" :value="$patient?->first_name" required autocomplete="off" />
+                    <x-panel.form.input name="first_name" label="Nombre" :value="$patient?->first_name" required autocomplete="off" icon="fa-solid fa-magnifying-glass" :data-patient-autocomplete="route('panel.patients.search')" placeholder="Escribe para buscar un paciente" hint="Busca por nombre o teléfono y elige al paciente para rellenar sus datos." />
                     <x-panel.form.input name="last_name" label="Apellidos" :value="$patient?->last_name" optional autocomplete="off" />
                     <x-panel.form.input name="phone" label="Teléfono" type="tel" :value="$patient?->phone" required icon="fa-solid fa-phone" autocomplete="off" />
                     <x-panel.form.input name="email" label="Email" type="email" :value="$patient?->email" optional icon="fa-regular fa-envelope" autocomplete="off" />

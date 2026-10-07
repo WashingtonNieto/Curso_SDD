@@ -308,7 +308,7 @@ Cada fase indica **Tareas**, **Archivos clave** y **Aceptación**. Al cerrar cad
 
 **Aceptación**: las citas creadas en 4.3 aparecen; mover a un hueco ocupado revierte; vacaciones visibles; responsive (en móvil vista lista/día).
 
-### FASE 6 — Blog (panel) y editor WYSIWYG
+### FASE 6 — Blog (panel) y editor WYSIWYG ✅ COMPLETADA (pendiente de validación del usuario)
 **Tareas**
 1. `wysiwyg.js`: inicializa Jodit en todo `[data-wysiwyg]` (idioma `es`, barra simplificada: párrafo/H2/H3, negrita, cursiva, subrayado, listas, enlace, imagen, cita, tabla, deshacer/rehacer; altura 400). Subida de imágenes a `POST /panel-psicologa/editor/imagenes` (autenticado, validado, respuesta en formato Jodit). Se aplica a **todos** los textarea grandes del panel (blog, sobre mí, servicios, FAQ, historias, plantilla RGPD, textos legales).
 2. Artículos: listado como el prototipo (tarjetas Total/Publicados/Borradores, buscador, filtros categoría/estado, tabla título+extracto, categoría, fecha, estado, acciones, paginación, empty state). Formulario: título, slug autogenerado editable (único), categoría (+ enlace a crear categoría), extracto, contenido Jodit (saneado), imagen destacada con previsualización, estado, fecha de publicación, meta description con contador de caracteres. Borrado con modal y eliminación de la imagen.
@@ -316,7 +316,7 @@ Cada fase indica **Tareas**, **Archivos clave** y **Aceptación**. Al cerrar cad
 
 **Aceptación**: CRUD completo; HTML malicioso (`<script>`, `onerror`) eliminado al guardar (test); imágenes servidas desde `storage`.
 
-### FASE 7 — Pacientes
+### FASE 7 — Pacientes ✅ COMPLETADA (pendiente de validación del usuario)
 **Tareas**
 1. Listado `/panel-psicologa/pacientes` como el prototipo: tarjetas (Total, Activos este mes, Consultas hoy), filtros (texto, estado, modalidad preferida, género) y tabla renderizada **por JS** desde `/pacientes/listado` (JSON paginado): al filtrar no se recarga la página, se muestra un skeleton de carga en la tabla y las filas se pintan con `el()`; búsqueda con debounce 300 ms; paginación AJAX; estado de filtros en la URL con `history.replaceState`; empty state.
 2. Crear/editar paciente: teléfono obligatorio (normalizado, único, mensaje claro si ya existe con enlace a la ficha), nombre, apellidos, email, fecha de nacimiento, género, DNI, dirección, ciudad, CP, ocupación, contacto de emergencia, modalidad preferida, estado, enfoque/tipo de terapia, motivo de consulta, notas (Jodit).

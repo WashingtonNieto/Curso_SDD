@@ -7,10 +7,7 @@ return [
      * Clave = nombre de ruta (sin el prefijo "panel.").
      */
     'coming_soon' => [
-        'patients.index' => ['uri' => 'pacientes', 'title' => 'Pacientes', 'icon' => 'fa-solid fa-user-group', 'text' => 'La ficha de cada paciente con sus datos, sus citas, su historia clínica y sus documentos.'],
         'clinical.index' => ['uri' => 'historias', 'title' => 'Historias clínicas', 'icon' => 'fa-solid fa-notes-medical', 'text' => 'Las notas de cada sesión, con fotos y PDF adjuntos, guardadas de forma privada.'],
-        'blog.posts.index' => ['uri' => 'blog/articulos', 'title' => 'Artículos del blog', 'icon' => 'fa-regular fa-newspaper', 'text' => 'Escribe y publica artículos con imagen y categoría para tu web.'],
-        'blog.categories.index' => ['uri' => 'blog/categorias', 'title' => 'Categorías del blog', 'icon' => 'fa-solid fa-tags', 'text' => 'Organiza tus artículos en categorías.'],
         'site.general' => ['uri' => 'mi-web/datos', 'title' => 'Datos generales', 'icon' => 'fa-solid fa-id-card', 'text' => 'Tu nombre público, eslogan, número de colegiada, datos de contacto y dirección de la consulta.'],
         'site.about' => ['uri' => 'mi-web/sobre-mi', 'title' => 'Sobre mí', 'icon' => 'fa-solid fa-feather', 'text' => 'Tu presentación, tu foto y tu formación y experiencia.'],
         'site.services' => ['uri' => 'mi-web/servicios', 'title' => 'Servicios', 'icon' => 'fa-solid fa-hand-holding-heart', 'text' => 'Los servicios que ofreces, con icono, imagen y descripción.'],

@@ -84,4 +84,27 @@ class Patient extends Model
     {
         return $query->where('status', 'activo');
     }
+
+    public function scopeSearch(Builder $query, ?string $text): Builder
+    {
+        $text = trim((string) $text);
+
+        if ($text === '') {
+            return $query;
+        }
+
+        $phone = preg_match('/^[\d\s+().-]+$/', $text) ? Phone::normalize($text) : null;
+
+        return $query->where(function (Builder $query) use ($text, $phone) {
+            $query->where(function (Builder $names) use ($text) {
+                foreach (preg_split('/\s+/', $text) as $word) {
+                    $names->where(fn (Builder $name) => $name->where('first_name', 'like', "%$word%")->orWhere('last_name', 'like', "%$word%"));
+                }
+            })->orWhere('email', 'like', "%$text%");
+
+            if ($phone !== null && strlen(ltrim($phone, '+')) >= 3) {
+                $query->orWhere('phone', 'like', '%'.ltrim($phone, '+').'%');
+            }
+        });
+    }
 }

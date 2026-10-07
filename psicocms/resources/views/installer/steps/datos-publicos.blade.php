@@ -4,14 +4,6 @@
 @section('heading', 'Los datos que verán tus pacientes')
 @section('lead', 'Esta información aparecerá en tu web pública. Rellena lo que tengas a mano; el resto podrás completarlo después.')
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('vendor/jodit/jodit.fat.min.css') }}">
-@endpush
-
-@push('scripts')
-    <script src="{{ asset('vendor/jodit/jodit.fat.min.js') }}"></script>
-@endpush
-
 @php
     $specialtyValues = old('specialties', $specialties);
     $serviceRows = old('services', $services);

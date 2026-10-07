@@ -1,6 +1,7 @@
 import { el } from '../core/dom.js';
 import { http } from '../core/http.js';
 import { spinner } from '../core/loader.js';
+import { initPatientAutocomplete } from '../modules/patient-autocomplete.js';
 
 function initAppointmentForm(form) {
     const slotsBox = form.querySelector('[data-slots]');
@@ -136,3 +137,4 @@ function initAppointmentForm(form) {
 }
 
 document.querySelectorAll('[data-appointment-form]').forEach(initAppointmentForm);
+initPatientAutocomplete();

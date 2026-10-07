@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Panel\AppointmentRequest;
 use App\Models\Appointment;
 use App\Models\AvailabilitySetting;
+use App\Models\Patient;
 use App\Services\AppointmentService;
 use App\Support\Phone;
 use Carbon\CarbonImmutable;
@@ -57,6 +58,14 @@ class AppointmentController extends Controller
             'status' => 'confirmada',
             'source' => 'telefono',
         ]);
+
+        if ($patient = Patient::find($request->integer('paciente') ?: null)) {
+            $appointment->setRelation('patient', $patient);
+
+            if (! $request->query('modalidad') && $patient->preferred_modality) {
+                $appointment->modality = $patient->preferred_modality;
+            }
+        }
 
         return view('panel.appointments.create', $this->formData($appointment) + [
             'initialDate' => $this->validDate($request->query('fecha')) ?? CarbonImmutable::today()->toDateString(),

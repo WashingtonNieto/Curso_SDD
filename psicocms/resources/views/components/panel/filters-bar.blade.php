@@ -9,8 +9,8 @@
             <i class="btn__icon fa-solid fa-filter" aria-hidden="true"></i>
             <span class="btn__label">{{ $submitLabel }}</span>
         </button>
-        @if ($resetUrl && request()->query())
-            <a class="btn btn--ghost btn--sm" href="{{ $resetUrl }}">
+        @if ($resetUrl)
+            <a class="btn btn--ghost btn--sm" href="{{ $resetUrl }}" data-filters-reset @unless (request()->query()) hidden @endunless>
                 <i class="btn__icon fa-solid fa-rotate-left" aria-hidden="true"></i>
                 <span class="btn__label">Limpiar</span>
             </a>

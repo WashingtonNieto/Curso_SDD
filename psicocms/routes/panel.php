@@ -2,9 +2,13 @@
 
 use App\Http\Controllers\Panel\AppointmentController;
 use App\Http\Controllers\Panel\AvailabilityController;
+use App\Http\Controllers\Panel\BlogCategoryController;
+use App\Http\Controllers\Panel\BlogPostController;
 use App\Http\Controllers\Panel\CalendarController;
 use App\Http\Controllers\Panel\ComingSoonController;
 use App\Http\Controllers\Panel\DashboardController;
+use App\Http\Controllers\Panel\EditorImageController;
+use App\Http\Controllers\Panel\PatientController;
 use App\Http\Controllers\Panel\VacationPeriodController;
 use App\Models\AvailabilitySetting;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +40,25 @@ Route::prefix('panel-psicologa')
             ->parameters(['citas' => 'appointment'])
             ->names('appointments')
             ->except('show');
+
+        Route::get('/pacientes/listado', [PatientController::class, 'list'])->name('patients.list');
+        Route::get('/pacientes/buscar', [PatientController::class, 'search'])->name('patients.search');
+        Route::resource('pacientes', PatientController::class)
+            ->parameters(['pacientes' => 'patient'])
+            ->names('patients');
+
+        Route::post('/editor/imagenes', EditorImageController::class)->name('editor.images');
+
+        Route::prefix('blog')->name('blog.')->group(function () {
+            Route::resource('articulos', BlogPostController::class)
+                ->parameters(['articulos' => 'post'])
+                ->names('posts')
+                ->except('show');
+            Route::resource('categorias', BlogCategoryController::class)
+                ->parameters(['categorias' => 'category'])
+                ->names('categories')
+                ->except(['show', 'create']);
+        });
 
         foreach (config('panel.coming_soon') as $name => $section) {
             Route::get($section['uri'], ComingSoonController::class)->name($name);

@@ -67,11 +67,22 @@ Leyenda: `[ ]` pendiente · `[x]` completada
 - [x] 5.5 Estilos de FullCalendar en `pages/calendar.css` con las variables del panel (modo oscuro)
 - [x] Tests de feature del calendario
 
-## FASE 6 — Blog (panel) y editor WYSIWYG
-- [ ] Pendiente
+## FASE 6 — Blog (panel) y editor WYSIWYG ✅ (pendiente de validación del usuario)
+- [x] 6.1 `wysiwyg.js`: Jodit en todo `[data-wysiwyg]` (idioma `es`, barra Párrafo/Título 2/Título 3/Cita, negrita, cursiva, subrayado, listas, enlace, imagen, tabla, deshacer/rehacer; altura 400) cargado automáticamente por el componente `form.wysiwyg` e inicializado en `panel.js`
+- [x] 6.1 Subida de imágenes del editor a `POST /panel-psicologa/editor/imagenes` (autenticada, validada, respuesta en formato Jodit)
+- [x] 6.2 Artículos: listado como el prototipo (tarjetas Total/Publicados/Borradores, buscador, filtros categoría/estado, tabla con miniatura + título + extracto, categoría, fecha, estado, acciones, paginación, empty states)
+- [x] 6.2 Formulario: título, slug autogenerado editable (único), categoría (+ alta rápida en modal), extracto, contenido Jodit saneado, imagen destacada con previsualización (y quitar), estado, fecha de publicación, meta descripción con contador
+- [x] 6.2 Borrado con modal y eliminación de la imagen
+- [x] 6.3 Categorías: CRUD (nombre, slug, descripción, nº de artículos); al borrar, los artículos quedan sin categoría (avisado en el modal); categorías por defecto ya en `BaseDataSeeder`
+- [x] Tests de feature (CRUD, slug único, HTML malicioso eliminado, imágenes en `storage`, filtros, categorías, subida del editor)
 
-## FASE 7 — Pacientes
-- [ ] Pendiente
+## FASE 7 — Pacientes ✅ (pendiente de validación del usuario)
+- [x] 7.1 Listado como el prototipo: tarjetas (Total, Activos este mes, Consultas hoy), filtros (texto, estado, modalidad preferida, género) y tabla pintada por JS desde `/pacientes/listado` (JSON paginado), skeleton de carga, debounce de 300 ms, paginación AJAX, filtros en la URL con `history.replaceState`, empty states
+- [x] 7.2 Crear/editar paciente: teléfono obligatorio (normalizado, único, aviso con enlace a la ficha si ya existe), nombre, apellidos, email, fecha de nacimiento, género, documento, dirección, ciudad, CP, ocupación, contacto de emergencia, modalidad preferida, estado, enfoque, motivo y notas (Jodit)
+- [x] 7.3 Ficha con pestañas Datos, Citas (próximas y pasadas, “Nueva cita para este paciente”), Historia clínica y Documentos (provisionales hasta las Fases 8 y 9); resumen de sesiones, última y próxima cita
+- [x] 7.4 Autocompletado en el formulario de cita (`patient-autocomplete.js` + `/pacientes/buscar`, máx. 8, teclado); si no se elige ninguno, la cita crea el paciente
+- [x] 7.5 Borrado con soft delete y modal que indica cuántas citas e historias tiene
+- [x] Tests de feature (CRUD, duplicados, recuperación, endpoint JSON con filtros y paginación, autocompletado, cita precargada)
 
 ## FASE 8 — Historias clínicas
 - [ ] Pendiente

@@ -8,6 +8,10 @@ import { initAppearance } from '../modules/appearance.js';
 import { initPasswordToggles } from '../modules/password-toggle.js';
 import { initLoadingForms } from '../modules/loading-forms.js';
 import { initAutoSubmit } from '../modules/auto-submit.js';
+import { initWysiwyg } from '../modules/wysiwyg.js';
+import { initImageUploads } from '../modules/image-upload.js';
+import { initSlugInputs } from '../modules/slug-input.js';
+import { initCharCounters } from '../modules/char-counter.js';
 
 initToasts();
 initModals();
@@ -19,3 +23,7 @@ initAppearance();
 initPasswordToggles();
 initLoadingForms();
 initAutoSubmit();
+initWysiwyg();
+initImageUploads();
+initSlugInputs();
+initCharCounters();

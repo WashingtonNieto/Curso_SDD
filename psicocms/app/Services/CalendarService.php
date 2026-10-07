@@ -74,7 +74,9 @@ class CalendarService
                     'status' => route('panel.appointments.status', $appointment),
                     'move' => route('panel.appointments.move', $appointment),
                     'delete' => route('panel.appointments.destroy', $appointment),
-                    'patient' => route('panel.patients.index', ['q' => $patient?->phone]),
+                    'patient' => $patient && ! $patient->trashed()
+                        ? route('panel.patients.show', $patient)
+                        : route('panel.patients.index', ['q' => $patient?->phone]),
                 ],
             ],
         ];

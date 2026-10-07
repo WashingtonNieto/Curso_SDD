@@ -74,3 +74,13 @@ Cambia la moneda por pesos colombianos
 Ahora procede a hacer la FASE 5.
 
 (Mismo bloque de contexto, jerarquía de conflicto, reglas de ejecución, reglas SDD, control de consistencias, alcance y salida esperada que el Prompt 3.)
+
+## Prompt 10
+Ahora procede a hacer la FASE 6.
+
+(Mismo bloque de contexto, jerarquía de conflicto, reglas de ejecución, reglas SDD, control de consistencias, alcance y salida esperada que el Prompt 3.)
+
+## Prompt 11
+Ahora procede a hacer la FASE 7.
+
+(Mismo bloque de contexto, jerarquía de conflicto, reglas de ejecución, reglas SDD, control de consistencias, alcance y salida esperada que el Prompt 3.)

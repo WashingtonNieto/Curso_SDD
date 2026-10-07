@@ -1,0 +1,104 @@
+/* Listado */
+.patients-table__name {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.patients-table__link {
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.patients-table__link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.patients-table__subtitle {
+    max-width: 28rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.patients-table__none {
+    color: var(--color-text-soft);
+}
+
+.patients-table__error {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 2.4rem 0;
+    color: var(--color-danger);
+}
+
+.patients-table td {
+    white-space: nowrap;
+}
+
+.patients-table td:first-child {
+    white-space: normal;
+}
+
+/* Ficha */
+.patient-header__identity {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    min-width: 0;
+}
+
+.patient-header__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 0.6rem;
+}
+
+.patient-header__phone {
+    font-size: 1.4rem;
+    color: var(--color-text-muted);
+}
+
+.patient-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 2.4rem;
+}
+
+.patient-appointments {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.patient-appointments__reason {
+    max-width: 32rem;
+    color: var(--color-text-muted);
+}
+
+.patient-appointments tr.is-cancelled td {
+    opacity: 0.6;
+}
+
+/* Formulario */
+.patient-duplicate {
+    margin-bottom: 2.4rem;
+}
+
+.patient-duplicate__link {
+    margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+    .patient-details {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
